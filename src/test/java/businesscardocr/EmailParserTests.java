@@ -6,14 +6,26 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EmailParserTests {
+	
+	String line;
+	String expectedEmail;
+	EmailParser emailParser;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setup() {
+		 emailParser = new EmailParser();
 	}
-
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testProcessLine_returnsEmailAddress() {
+		 expectedEmail = "my.email@example.com";
+		 line = "my.email@example.com";
+		 lineContainsEmailAddress(line, expectedEmail);
+	}
+	
+	public void lineContainsEmailAddress(String line, String expectedEmail) {
+		String actualEmail = emailParser.processLine(line);
+		assertEquals(expectedEmail, actualEmail);
 	}
 
 }
