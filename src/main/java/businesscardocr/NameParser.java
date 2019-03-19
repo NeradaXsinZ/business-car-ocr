@@ -1,9 +1,15 @@
 package businesscardocr;
 
-public class NameParser {
+public class NameParser implements Parser{
 
-	public NameParser() {
-		// TODO Auto-generated constructor stub
+	@Override
+	public String processLine(String line) {
+		return null;
+	}
+	
+	@Override
+	public String getMatch() {
+		return null;
 	}
 
 }

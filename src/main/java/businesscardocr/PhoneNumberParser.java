@@ -1,9 +1,15 @@
 package businesscardocr;
 
-public class PhoneNumberParser {
+public class PhoneNumberParser implements Parser {
 
-	public PhoneNumberParser() {
-		// TODO Auto-generated constructor stub
+	@Override
+	public String processLine(String line) {
+		return null;
+	}
+	
+	@Override
+	public String getMatch() {
+		return null;
 	}
 
 }
