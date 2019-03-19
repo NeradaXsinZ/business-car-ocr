@@ -1,0 +1,24 @@
+# Gradle #
+build/
+.gradle
+.gradletasknamecache
+build/
+buildSrc/build/
+subprojects/
+bin/
+
+# Compiled class files #  
+*.class                   
+                          
+# Log Files #             
+*.log                     
+                          
+# package Files #         
+*.jar                    
+*.zip                  
+                          
+# Eclipse #               
+.classpath                
+.project                  
+.settings                 
+*.ucls                    
