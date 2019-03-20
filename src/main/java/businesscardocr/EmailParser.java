@@ -4,12 +4,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EmailParser implements Parser{
+	/*
+	 * ASSUMPTIONS:
+	 * 		-The email address on the card is a valid address
+	 * 		-There are no non-whitespace characters preceding the address
+	 * 		-The email address contains no whitespace
+	 * 		-The email address ends in an alpha-numeric character
+	 * 		-There is at lease one non-whitespace character before the TLD
+	 */
 	private final Pattern EMAIL_PATTERN = Pattern.compile("\\S+@\\S+\\.\\S[a-zA-Z1-9]+");
-	private String emailAddress;
+	private String emailAddress = "";
 	
 	@Override
 	public String processLine(String line) {
-		if(emailAddress == null) {
+		if(emailAddress.isEmpty()) { 
 			Matcher emailMatcher = EMAIL_PATTERN.matcher(line);
 			if(emailMatcher.find()) {
 				emailAddress = emailMatcher.group(); //set email to first match
