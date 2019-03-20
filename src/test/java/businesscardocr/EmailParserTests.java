@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class EmailParserTests {
 	
-	String line;
-	String expectedEmail;
-	EmailParser emailParser;
+	private String line;
+	private String expectedEmail;
+	private Parser emailParser;
 
 	@Before
 	public void setup() {
@@ -50,7 +50,7 @@ public class EmailParserTests {
 		 lineContainsEmailAddress(line, expectedEmail);
 	}
 		
-	public void lineContainsEmailAddress(String line, String expectedEmail) {
+	private void lineContainsEmailAddress(String line, String expectedEmail) {
 		String actualEmail = emailParser.processLine(line);
 		assertEquals(expectedEmail, actualEmail);
 	}
