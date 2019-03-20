@@ -30,8 +30,8 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
-
-jar {
+//Add manifest file 
+shadowJar {
     manifest {
         attributes 'Main-Class': "$mainClassName"
     }
