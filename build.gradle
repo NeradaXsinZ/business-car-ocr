@@ -10,6 +10,8 @@ plugins {
     id 'java'
     id 'application'
     id 'eclipse'
+    id 'com.github.johnrengelman.shadow' version '5.0.0'
+    
 }
 
 mainClassName = 'businesscardocr.BusinessCardParser'
@@ -27,4 +29,11 @@ dependencies {
 	
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "$mainClassName"
+    }
+    baseName = 'BusinessCardParser'
 }

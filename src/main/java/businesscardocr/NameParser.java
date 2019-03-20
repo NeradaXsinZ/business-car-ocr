@@ -9,12 +9,17 @@ import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.tokenize.SimpleTokenizer;
 import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.util.Span;
-
+/**
+ * 
+ * @author rnettey
+ *
+ */
 public class NameParser implements Parser{
 
 	private TokenNameFinderModel model ;
 	private NameFinderME nameFinder;
 	private String name = "";
+	
 	public NameParser() {
 		InputStream inputStream = getClass().getResourceAsStream("/en-ner-person.bin");
 		try {

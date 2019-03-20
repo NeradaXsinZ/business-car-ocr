@@ -4,7 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * 
+ * @author rnettey
+ *
+ */
 public class PhoneNumberParserTests {
 
 	private String line;
@@ -66,12 +70,31 @@ public class PhoneNumberParserTests {
 		lineContainsPhoneNumber(line, expectedPhoneNumber);
 	}
 	
-	
+	@Test
+	public void testLineWithPipeBetweenLines() {
+		expectedPhoneNumber = "7177249371";
+		line = String.format("(717) 724-9371 Tel | (717) 633-8845 Fax");
+		lineContainsPhoneNumber(line, expectedPhoneNumber);
+	}
 	
 	@Test
 	public void testLineWithCountryPrefix() {
-		expectedPhoneNumber = "17177249371";
-		line = "Phone: +1 (717) 724-9371";
+		expectedPhoneNumber = "907177249371";
+		line = "Phone: +90 (717) 724-9371";
+		lineContainsPhoneNumber(line, expectedPhoneNumber);
+	}
+	
+	@Test
+	public void testLineWithNoNumber_returnsEmptyString() {
+		expectedPhoneNumber = "";
+		line = "Dave Kim | Software Engineer";
+		lineContainsPhoneNumber(line, expectedPhoneNumber);
+	}
+	
+	@Test
+	public void testLineAddress_returnsEmptyString() {
+		expectedPhoneNumber = "";
+		line = "3355 Larabi Drive, Shippensburg, PA 17257";
 		lineContainsPhoneNumber(line, expectedPhoneNumber);
 	}
 

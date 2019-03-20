@@ -2,12 +2,16 @@ package businesscardocr;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * 
+ * @author rnettey
+ *
+ */
 public class EmailParser implements Parser{
 	/*
 	 * ASSUMPTIONS:
 	 * 		-The email address on the card is a valid address
-	 * 		-There are no non-whitespace characters preceding the address
+	 * 		-There is a whitespace character preceding the email address
 	 * 		-The email address contains no whitespace
 	 * 		-The email address ends in an alpha-numeric character
 	 * 		-There is at lease one non-whitespace character before the TLD
