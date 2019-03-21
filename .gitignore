@@ -6,6 +6,7 @@ build/
 buildSrc/build/
 subprojects/
 bin/
+!gradle/wrapper/gradle-wrapper.jar
 
 # Compiled class files #  
 *.class                   
