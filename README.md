@@ -9,6 +9,18 @@ The business-card-ocr tool takes a .txt file with information about a person and
 ## Requirements
 This application requires Java to run, and uses Gradle as a build tool.
 
+## Application inputs
+This program takes a single txt file as input via the command line. The file should contain info normally found on a business card, seperated by new lines. 
+
+Example: 
+``` 
+Bob Evans
+Software Engineer
+1685 Scotland Drive, Baltimore, MD 11111
+Phone: (717) 762-8401
+bevans@gmail.site
+```
+
 ## Installation
 To create the Jar run
 ```console
