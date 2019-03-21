@@ -48,8 +48,25 @@ javadoc {
 
 test {
 	//Run test suite and display test results in console 
+	dependsOn 'cleanTest'
 	filter{
-		includeTestsMatching 'stigappguide.AllTests'
+		includeTestsMatching 'businesscardocr.AllTests'
 	}
-    testLogging.showStandardStreams = true
+	testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        
+    	//From: https://stackoverflow.com/a/36130467/9225752
+        afterSuite { desc, result ->
+			if (!desc.parent) { // will match the outermost suite
+				def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+				def startItem = '|  ', endItem = '  |'
+				def repeatLength = startItem.length() + output.length() + endItem.length()
+				println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+			}
+        }
+    }
+    
+	
+	
 }
+    
