@@ -30,10 +30,24 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
-//Add manifest file 
+//Add manifest file and main class name to fat jar
 shadowJar {
     manifest {
         attributes 'Main-Class': "$mainClassName"
     }
     baseName = 'BusinessCardParser'
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.runtimeClasspath
+}
+
+
+test {
+	//Run test suite and display test results in console 
+	filter{
+		includeTestsMatching 'stigappguide.AllTests'
+	}
+    testLogging.showStandardStreams = true
 }
