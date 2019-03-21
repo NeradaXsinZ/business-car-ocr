@@ -32,7 +32,7 @@ public class EmailParser implements Parser{
 	}
 	
 	@Override
-	public String getMatch() {
+	public String getValue() {
 		return emailAddress;
 	}
 

@@ -3,15 +3,15 @@ package businesscardocr;
 public interface Parser {
 	
 	/**
-	 * <p>Parses the line and returns the relevant item</p>
+	 * Parses the line and returns the relevant item
 	 * @param line the line to be parsed
 	 * @return A String containing the relevant match
 	 */
 	public String processLine(String line);
 	
 	/**
-	 * Get the result {@link #processLine} 
+	 * Get the result of {@link #processLine} 
 	 * @return a string containing the parsed value
 	 */
-	public String getMatch();
+	public String getValue();
 }

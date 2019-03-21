@@ -43,15 +43,19 @@ public class PhoneNumberParser implements Parser {
 	 * @return A String  containing the phone number
 	 */
 	private String getLineWithPhoneNumber(String line) {
+		String value = "";
 		String seperator = System.lineSeparator();
 		List<String> lines = new ArrayList<>(Arrays.asList(line.split("\\||"+seperator)));
 		lines.removeIf(PHONE_NUMBER_PATTERN.asPredicate().negate());
 		lines.removeIf(NOT_CONTAINS_FAX_PATTERN.asPredicate().negate());
-		return lines.get(0);
+		if(!lines.isEmpty()) {
+			value = lines.get(0);
+		}
+		return value;
 	}
 	
 	@Override
-	public String getMatch() {
+	public String getValue() {
 		return phoneNumber;
 	}
 

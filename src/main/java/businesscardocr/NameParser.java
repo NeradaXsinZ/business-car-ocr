@@ -37,7 +37,6 @@ public class NameParser implements Parser{
 			//Adapted from: https://community.hortonworks.com/articles/76240/using-opennlp-for-identifying-names-from-text.html
 			Tokenizer tokenizer = SimpleTokenizer.INSTANCE;
 			String[] tokens = tokenizer.tokenize(line); 
-			Arrays.asList(tokens).forEach(token -> System.out.println(token));
 			Span[] nameSpans = nameFinder.find(tokens);
 			String[] names= Span.spansToStrings(nameSpans, tokens); 
 			name = (names != null && names.length > 0) ? names[0] : "";
@@ -46,8 +45,8 @@ public class NameParser implements Parser{
 	}
 	
 	@Override
-	public String getMatch() {
-		return null;
+	public String getValue() {
+		return name;
 	}
 
 }

@@ -5,10 +5,10 @@ public class ContactInfo {
 	private String emailAddress;
 	private String phoneNumber;
 
-	public ContactInfo(String name, String emailAddress, String phoneNumber) {
+	public ContactInfo(String name, String phoneNumber, String emailAddress) {
 		this.name = name;
-		this.emailAddress = emailAddress;
 		this.phoneNumber = phoneNumber;
+		this.emailAddress = emailAddress;
 	}
 	
 	public String getName() {
@@ -21,7 +21,11 @@ public class ContactInfo {
 	
 	public String getEmailAddress() {
 		return emailAddress;
-		
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Name: %s%nPhone: %s%nEmail: %s", name, phoneNumber, emailAddress);
 	}
 
 }
