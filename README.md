@@ -9,7 +9,7 @@ The business-card-ocr tool takes a .txt file with information about a person and
 ## Requirements
 This application requires Java to run, and uses Gradle as a build tool.
 
-## Application inputs
+## Application Inputs
 This program takes a single txt file as input via the command line. The file should contain info normally found on a business card, seperated by new lines. 
 
 Example: 
