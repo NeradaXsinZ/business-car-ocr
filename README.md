@@ -17,6 +17,16 @@ foo@business-card-ocr
 ```
 A jar will be created in build/libs
 
+Note: if you get the error
+```console
+Error: Could not find or load main class org.gradle.wrapper.GradleWrapperMain
+```
+then try running the following command before running shadowJar 
+```console
+gradle wrapper 
+```
+
+
 ## Running the Application
 After creating the jar, to run the application simply navigate to build/libs and run
 ```console
