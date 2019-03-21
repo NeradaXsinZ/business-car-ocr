@@ -30,12 +30,14 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
+
+def jarName = 'BusinessCardParser'
 //Add manifest file and main class name to fat jar
 shadowJar {
     manifest {
         attributes 'Main-Class': "$mainClassName"
     }
-    baseName = 'BusinessCardParser'
+    baseName = jarName
 }
 
 javadoc {

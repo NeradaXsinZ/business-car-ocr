@@ -7,14 +7,19 @@ import java.util.Scanner;
 
 /**
  * Solution for the Business Card OCR Challenge proposed by Asymmetrik
- * See {@link <href a=>}
  * @see <a href="https://asymmetrik.com/programming-challenges/">Asymmetrik Challenges</a>
  * @author rnettey
  *
  */
 public class BusinessCardParser {
 
-	
+	/**
+	 * Get the contact info of a person using values parsed from
+	 * a document
+	 * @param document the document to parse
+	 * @return The name, phone number, and email address on the
+	 * businesscard 
+	 */
 	public static ContactInfo getContactInfo(String document) {
 		Parser nameParser = new NameParser();
 		Parser emailParser = new EmailParser();
@@ -24,27 +29,37 @@ public class BusinessCardParser {
 		nameParser.processLine(document);
 		phoneNumberParser.processLine(document);
 
-		return new ContactInfo(nameParser.getMatch(),
-				emailParser.getMatch(),
-				phoneNumberParser.getMatch());
+		return new ContactInfo(nameParser.getValue(),
+				phoneNumberParser.getValue(),
+				emailParser.getValue());
 		
 	}
 	
-	public static void main(String [] args) {
+	/**
+	 * Get the content of the file at the file path passed in.
+	 * @param filePath path of the file for which to retrieve content
+	 * @return The content of the file as a string 
+	 */
+	public static String getFileContent(String filePath) {
 		String document = "";
-		
-		try(InputStream fileStream = new FileInputStream(args[0])){
-			Scanner docReader = new Scanner(fileStream);
+		try(InputStream fileStream = new FileInputStream(filePath)){
+			Scanner docReader = new Scanner(fileStream, "UTF-8");
 			
 			while(docReader.hasNextLine()) {
 				document += docReader.nextLine() + " | ";
 			}
-            System.out.println(BusinessCardParser.getContactInfo(document));
 		}
-		catch(IOException e) {
-			String errMessage = String.format("Either the system cannot find the file specified or no file was specified%n%s", e.toString());
-			System.out.println();
+		catch(IndexOutOfBoundsException | IOException e) {
+			String errMessage = "Either the system cannot find the file specified or no file was specified.";
+			System.out.println(errMessage);
 		}
+		
+		return document;
+	}
+	
+	public static void main(String [] args) throws Exception {
+		String document = getFileContent(args[0]);
+        System.out.println(BusinessCardParser.getContactInfo(document));
 	}
 
 }
