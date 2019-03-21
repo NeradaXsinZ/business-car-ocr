@@ -3,6 +3,9 @@
 ## Motivation
 This application is a solution to an [Asymmetrik programming challenge](http://asymmetrik.com/programming-challenges/) 
 
+## About 
+The business-card-ocr tool takes a .txt file with information about a person and parses that file for a name, phone number, and email address
+
 ## Requirements
 This application requires Java to run, and uses Gradle as a build tool.
 
@@ -15,7 +18,7 @@ foo@business-card-ocr
 A jar will be created in build/libs
 
 ## Running the Application
-After creating the jar, to run the application simply run
+After creating the jar, to run the application simply navigate to build/libs and run
 ```console
 foo@business-card-ocr/build/libs
 > java -jar BusinessCardParser-all.jar path/to/BusinessCardfile.txt
